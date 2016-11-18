@@ -13,7 +13,8 @@ with open('settings.json') as d:
 print('[!] Loading dataset...')
 X = []
 SERVO = []
-DATA_FILES = ['data/output_0.csv', 'data/output_1.csv', 'data/output_2.csv', 'data/output_3.csv', 'data/output_4.csv']
+#DATA_FILES = ['data/output_0.csv', 'data/output_1.csv', 'data/output_2.csv', 'data/output_3.csv', 'data/output_4.csv']
+DATA_FILES = ['data/output_0.csv']
 for d in DATA_FILES:
     c_x, c_servo = get_servo_dataset(d)
     X = X + c_x
@@ -31,6 +32,8 @@ servo_model = get_cnn_model(SETTINGS['servo_cnn_name'], SETTINGS['width'], SETTI
 if len(sys.argv) > 1:
     servo_model.load(sys.argv[1])
 
+print('X.shape = '+str(X.shape))
+print('SERVO.shape = '+str(SERVO.shape))
 servo_model.fit({'input': X}, {'target': SERVO}, n_epoch=10000,
                 validation_set=0.1, show_metric=True, snapshot_epoch=False,
                 snapshot_step=10000, run_id=SETTINGS['servo_cnn_name'])
