@@ -82,6 +82,7 @@ class SuironIO:
     # Gets frame
     def get_frame(self):
         ret, frame = self.cap.read()
+        print('frame.shape = '+str(frame.shape))
 
         # If we get a frame, save it
         if not ret:
@@ -124,6 +125,7 @@ class SuironIO:
     def normalize_frame(self, frame):
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         frame = cv2.resize(frame, (self.width, self.height), interpolation=cv2.INTER_CUBIC)
+        print('resize frame.shape = '+str(frame.shape))
         frame = frame.flatten()
         frame = frame.astype('uint8')
         return frame

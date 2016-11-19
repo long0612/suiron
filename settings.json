@@ -1,5 +1,5 @@
 {
-    "width": 72,
+    "width": 64,
     "height": 48,
     "depth": 3,
     "servo_cnn_name": "cnn_servo_model",
