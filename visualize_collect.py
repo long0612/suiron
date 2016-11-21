@@ -8,11 +8,11 @@ from suiron.utils.file_finder import get_latest_filename
 with open('settings.json') as d:
     SETTINGS = json.load(d)
 
-# Visualize latest filename
-filename = get_latest_filename() 
-
 # If we specified which file
 if len(sys.argv) > 1:
     filename = sys.argv[1]
+else:
+    # Visualize latest filename
+    filename = get_latest_filename() 
 
 visualize_data(filename, width=SETTINGS['width'], height=SETTINGS['height'], depth=SETTINGS['depth'])
