@@ -14,7 +14,7 @@ print('[!] Loading dataset...')
 X = []
 SERVO = []
 #DATA_FILES = ['data/output_0.csv', 'data/output_1.csv', 'data/output_2.csv', 'data/output_3.csv', 'data/output_4.csv']
-DATA_FILES = ['data/output_0.csv']
+DATA_FILES = ['data/'+s for s in os.listdir('data')]
 for d in DATA_FILES:
     c_x, c_servo = get_servo_dataset(d)
     X = X + c_x
