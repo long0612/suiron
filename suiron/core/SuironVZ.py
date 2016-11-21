@@ -28,11 +28,14 @@ def visualize_data(filename, width=72, height=48, depth=3, cnn_model=None):
 
         # Extra debugging info (e.g. steering etc)
         cv2.putText(cur_img_array, "frame: %s" % str(i), (5,35), cv2.FONT_HERSHEY_SIMPLEX, 1, 255)
-        cv2.line(cur_img_array, (240, 300), (240-(90-cur_throttle), 200), (0, 255, 0), 3)
+        cv2.putText(cur_img_array, "servo: %s" % str(cur_throttle), (5,70), cv2.FONT_HERSHEY_SIMPLEX, 1, 255)
+        cv2.putText(cur_img_array, "motor: %s" % str(cur_motor), (5,105), cv2.FONT_HERSHEY_SIMPLEX, 1, 255)
 
-        # Motor values
-        # RGB
-        cv2.line(cur_img_array, (50, 160), (50, 160-(90-cur_motor)), raw_motor_to_rgb(cur_motor), 3)
+        # Steering values
+        cv2.line(cur_img_array, (240, 300), (240+cur_throttle, 200), (0, 255, 0), 3)
+
+        # Motor values, RGB
+        cv2.line(cur_img_array, (50, 300), (50, 300-cur_motor), raw_motor_to_rgb(cur_motor), 3)
 
         # If we wanna visualize our cnn_model
         if cnn_model:
