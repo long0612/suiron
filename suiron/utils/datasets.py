@@ -25,7 +25,7 @@ def get_servo_dataset(filename, start_index=0, end_index=None, width=72, height=
         #    continue
 
         # Append
-        x.append(deserialize_image(data['image'][i]),width,height,depth)
+        x.append(deserialize_image(data['image'][i],width,height,depth))
         servo.append(raw_to_cnn(data['servo'][i]))
 
     return x, servo
