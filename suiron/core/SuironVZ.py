@@ -20,7 +20,7 @@ def visualize_data(filename, width=72, height=48, depth=3, cnn_model=None):
         cur_motor = int(data['motor'][i])        
         
         # [1:-1] is used to remove '[' and ']' from string 
-        cur_img_array = deserialize_image(cur_img,width,height)        
+        cur_img_array = deserialize_image(cur_img,width,height,depth)        
         y_input = cur_img_array.copy() # NN input
 
         # And then rescale it so we can more easily preview it

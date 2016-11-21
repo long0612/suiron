@@ -10,7 +10,7 @@ from suiron.utils.img_serializer import deserialize_image
 from suiron.utils.functions import raw_to_cnn
 
 # Gets servo dataset
-def get_servo_dataset(filename, start_index=0, end_index=None):
+def get_servo_dataset(filename, start_index=0, end_index=None, width=72, height=48, depth=3):
     data = pd.DataFrame.from_csv(filename)
 
     # Outputs
@@ -25,7 +25,7 @@ def get_servo_dataset(filename, start_index=0, end_index=None):
         #    continue
 
         # Append
-        x.append(deserialize_image(data['image'][i]))
+        x.append(deserialize_image(data['image'][i]),width,height,depth)
         servo.append(raw_to_cnn(data['servo'][i]))
 
     return x, servo
