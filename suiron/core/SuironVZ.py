@@ -41,7 +41,7 @@ def visualize_data(filename, width=72, height=48, depth=3, cnn_model=None):
         if cnn_model:
             y = cnn_model.predict([y_input])
             servo_out = cnn_to_raw(y[0])         
-            cv2.line(cur_img_array, (240, 300), (240-(90-int(servo_out)), 200), (0, 0, 255), 3)
+            cv2.line(cur_img_array, (240, 300), (240+int(servo_out), 200), (0, 0, 255), 3)
 
             # Can determine the motor our with a simple exponential equation
             # x = abs(servo_out-90)
