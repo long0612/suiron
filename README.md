@@ -20,6 +20,13 @@ sudo pip install --upgrade $TF_BINARY_URL
 sudo pip install -r requirements.txt
 ```
 
+## For virtualenv, must create additional symlinks
+```
+ln -s /usr/lib/python2.7/dist-packages/cv2.so ~/env2.7/lib/python2.7/site-packages/cv2.so
+ln -s /usr/lib/python2.7/dist-packages/cv.py ~/env2.7/lib/python2.7/site-packages/cv.py
+ln -s /usr/lib/python2.7/dist-packages/cv.pyc ~/env2.7/lib/python2.7/site-packages/cv.pyc
+```
+
 ## Collecting data
 ```
 python collect.py
