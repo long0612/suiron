@@ -20,7 +20,7 @@ sudo pip install --upgrade $TF_BINARY_URL
 sudo pip install -r requirements.txt
 ```
 
-## For virtualenv, must create additional symlinks. Note that the main class in the python API is named cv2 to avoid the namespace collision with another package, and not an indication of version 2
+#### For virtualenv, must create additional symlinks. Note that the main class in the python API is named cv2 to avoid the namespace collision with another package, and not an indication of version 2
 ```
 ln -s /usr/lib/python2.7/dist-packages/cv2.so ~/env2.7/lib/python2.7/site-packages/cv2.so
 ln -s /usr/lib/python2.7/dist-packages/cv.py ~/env2.7/lib/python2.7/site-packages/cv.py
