@@ -43,7 +43,7 @@ python visualize_collect.py
 python train.py
 ```
 #### Troubleshooting
-* __~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver: No variables to save__
+* __~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save__
 
     Set __allow_empty=True__ option in the Saver constructor (this seems to be new in TF).
 
