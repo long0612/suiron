@@ -43,10 +43,9 @@ python visualize_collect.py
 python train.py
 ```
 #### Troubleshooting
-* __~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134__
-__tf.train.Saver: No variables to save__
+* __~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver: No variables to save__
 
-Set allow_empty=True flag in the Saver constructor (This seems to be new in tf).
+    Set allow_empty=True flag in the Saver constructor (This seems to be new in tf).
 
 ## Visualizing predicted data
 ```
