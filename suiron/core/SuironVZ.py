@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 import pandas as pd
+import imageio
 
 from suiron.utils.functions import raw_to_cnn, cnn_to_raw, raw_motor_to_rgb
 from suiron.utils.img_serializer import deserialize_image
@@ -13,7 +14,8 @@ def visualize_data(filename, width=72, height=48, depth=3, cnn_model=None):
     as opposed to what inputs it actually received (green)
     """
     data = pd.DataFrame.from_csv(filename)     
-
+    frames = []
+    
     for i in data.index:
         cur_img = data['image'][i]
         cur_throttle = int(data['servo'][i])
@@ -60,5 +62,8 @@ def visualize_data(filename, width=72, height=48, depth=3, cnn_model=None):
         # Show frame
         # Convert to BGR cause thats how OpenCV likes it
         cv2.imshow('frame', cv2.cvtColor(cur_img_array, cv2.COLOR_RGB2BGR))
+        frames += [cur_img_array]
         if cv2.waitKey(0) & 0xFF == ord('q'):
             break
+
+    imageio.mimsave('out.gif',frames)
