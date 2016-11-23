@@ -42,9 +42,8 @@ python visualize_collect.py
 ```
 python train.py
 ```
-#### Error in tflearn's trainer class, i.e.
-~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py
-tf.train.Saver@134: No variable to save
+#### Error in tflearn's trainer class, i.e. ~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py
+#### tf.train.Saver@134: No variable to save
 
 Set allow_empty=True flag in the Saver constructor (This seems to be new in tf).
 
