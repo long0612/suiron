@@ -21,12 +21,12 @@ try:
 except Exception as e:
     print(e)
     
-# Visualize latest filename
-filename = get_latest_filename() 
-
 # If we specified which file
 if len(sys.argv) > 1:
     filename = sys.argv[1]
+else:
+    # Visualize latest filename
+    filename = get_latest_filename() 
 
 # Visualize it
 visualize_data(filename, SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'], cnn_model=servo_model)
