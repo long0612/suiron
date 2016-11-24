@@ -2,7 +2,6 @@
 Serializes and deserializes images 
 after converted to the DataFrame format
 """
-import cv2
 import numpy as np
 
 # Deserializes image from data frame dump

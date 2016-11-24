@@ -374,16 +374,15 @@ class RemoteControlCozmo:
         l_wheel_speed = (drive_dir * forward_speed) + (turn_speed * turn_dir)
         r_wheel_speed = (drive_dir * forward_speed) - (turn_speed * turn_dir)
 
-        if (!_is_autodrive){
+        if not _is_autodrive:
             self.cur_motor = drive_dir * forward_speed
             self.cur_servo = turn_speed * turn_dir
-        }else{
+        else:
             cur_img_array = deserialize_image(self.logImages[self.fIdx],SETTINGS['width'],SETTINGS['height'],SETTINGS['depth'])
             y_input = cur_img_array.copy() # NN input
             y = cnn_model.predict([y_input])
             self.cur_servo = int(cnn_to_raw(y[0]))
             self.cur_motor = int(cnn_to_raw(y[1]))
-        }
 
         self.cozmo.drive_wheels(l_wheel_speed, r_wheel_speed, l_wheel_speed*4, r_wheel_speed*4)
 
