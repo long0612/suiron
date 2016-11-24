@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import cv2
 import pandas as pd
@@ -66,4 +67,4 @@ def visualize_data(filename, width=72, height=48, depth=3, cnn_model=None):
         if cv2.waitKey(0) & 0xFF == ord('q'):
             break
 
-    imageio.mimsave('out.gif',frames)
+    imageio.mimsave(os.path.splitext(os.path.basename(filename))[0]+'.gif',frames)
