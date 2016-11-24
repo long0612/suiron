@@ -2,6 +2,7 @@
     "width": 64,
     "height": 48,
     "depth": 3,
+    "out_dim": 2,
     "cnn_name": "cnn_servo_motor_model",
     "nn_name": "nn_model"
 }

@@ -10,14 +10,14 @@ from suiron.utils.img_serializer import deserialize_image
 from suiron.utils.functions import raw_to_cnn
 
 # Gets servo dataset
-def get_servo_dataset(filename, start_index=0, end_index=None, width=72, height=48, depth=3):
+def get_dataset(filename, start_index=0, end_index=None, width=72, height=48, depth=3):
     data = pd.DataFrame.from_csv(filename)
 
     # Outputs
     x = []
 
-    # Servo ranges from 40-150
-    servo = []
+    # Servo and Motor
+    y = []
 
     for i in data.index[start_index:end_index]:
         # Don't want noisy data
@@ -26,9 +26,9 @@ def get_servo_dataset(filename, start_index=0, end_index=None, width=72, height=
 
         # Append
         x.append(deserialize_image(data['image'][i],width,height,depth))
-        servo.append(raw_to_cnn(data['servo'][i]))
+        y.append([raw_to_cnn(data['servo'][i]),raw_to_cnn(data['motor'][i])])
 
-    return x, servo
+    return x, y
 
 # Gets motor output dataset
 # Assumption is that motor and servo has

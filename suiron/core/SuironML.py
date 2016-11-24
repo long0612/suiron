@@ -10,7 +10,7 @@ from tflearn.layers.estimator import regression
 
 # NVIDIA's CNN architecture  
 # (used for unprocessed data)
-def get_cnn_model(checkpoint_path='cnn_servo_model', width=72, height=48, depth=3, session=None):
+def get_cnn_model(checkpoint_path='cnn_servo_model', width=72, height=48, depth=3, session=None, out_dim=1):
     
     # Inputs
     network = input_data(shape=[None, height, width, depth], name='input')
@@ -48,7 +48,7 @@ def get_cnn_model(checkpoint_path='cnn_servo_model', width=72, height=48, depth=
     network = dropout(network, 0.8)
  
     # Fully connected no.5
-    network = fully_connected(network, 1, activation='tanh')
+    network = fully_connected(network, out_dim, activation='tanh')
 
     # Regression
     network = regression(network, loss='mean_square', metric='accuracy', learning_rate=1e-4,name='target') 
@@ -60,7 +60,7 @@ def get_cnn_model(checkpoint_path='cnn_servo_model', width=72, height=48, depth=
 
 # Simple One hidden layer NN to determine the (linear?) relationship between 
 # the steering angle and motor value
-def get_nn_model(checkpoint_path='nn_motor_model', session=None):
+def get_nn_model(checkpoint_path='nn_motor_model', session=None, out_dim=1):
     # Input is a single value (raw motor value)
     network = input_data(shape=[None, 1], name='input')
 
@@ -68,7 +68,7 @@ def get_nn_model(checkpoint_path='nn_motor_model', session=None):
     network = fully_connected(network, 12, activation='linear')
     
     # Output layer
-    network = fully_connected(network, 1, activation='tanh')
+    network = fully_connected(network, out_dim, activation='tanh')
 
     # regression
     network = regression(network, loss='mean_square', metric='accuracy', name='target')
