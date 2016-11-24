@@ -28,7 +28,7 @@ print('[!] Finished loading dataset...')
 
 # One NN for servo, one for motor
 # for now, outputs = 10
-servo_model = get_cnn_model(SETTINGS['servo_cnn_name'], SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'])
+servo_model = get_cnn_model(SETTINGS['cnn_name'], SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'])
 
 # Loads previous model if specified
 if len(sys.argv) > 1:
@@ -36,5 +36,5 @@ if len(sys.argv) > 1:
 
 servo_model.fit({'input': X}, {'target': SERVO}, n_epoch=10000,
                 validation_set=0.1, show_metric=True, snapshot_epoch=False,
-                snapshot_step=10000, run_id=SETTINGS['servo_cnn_name'])
-servo_model.save(SETTINGS['servo_cnn_name'] + '.ckpt')
+                snapshot_step=10000, run_id=SETTINGS['cnn_name'])
+servo_model.save(SETTINGS['cnn_name'] + '.ckpt')

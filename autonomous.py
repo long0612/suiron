@@ -18,8 +18,8 @@ suironio.motor_stop()
 
 # CNN Model
 print('Initiating CNN model...')
-servo_model = get_cnn_model(SETTINGS['servo_cnn_name'], SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'])
-servo_model.load(SETTINGS['servo_cnn_name'] + '.ckpt')
+servo_model = get_cnn_model(SETTINGS['cnn_name'], SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'])
+servo_model.load(SETTINGS['cnn_name'] + '.ckpt')
 
 print('Warming up camera...')
 time.sleep(5)

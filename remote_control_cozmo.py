@@ -51,9 +51,9 @@ with open('settings.json') as d:
 
 # Load up our CNN
 cnn_model = None
-cnn_model = get_cnn_model(SETTINGS['servo_cnn_name'], SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'])
+cnn_model = get_cnn_model(SETTINGS['cnn_name'], SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'])
 try:    
-    cnn_model.load(SETTINGS['servo_cnn_name'] + '.ckpt')
+    cnn_model.load(SETTINGS['cnn_name'] + '.ckpt')
 except Exception as e:
     print(e)
 
