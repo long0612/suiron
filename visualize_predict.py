@@ -15,7 +15,7 @@ with open('settings.json') as d:
 
 # Load up our CNN
 servo_model = None
-servo_model = get_cnn_model(SETTINGS['cnn_name'], SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'])
+servo_model = get_cnn_model(SETTINGS['cnn_name'], SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'], SETTINGS['out_dim'])
 try:    
     servo_model.load(SETTINGS['cnn_name'] + '.ckpt')
 except Exception as e:
