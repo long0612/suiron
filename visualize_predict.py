@@ -14,10 +14,10 @@ with open('settings.json') as d:
 
 
 # Load up our CNN
-servo_model = None
-servo_model = get_cnn_model(SETTINGS['cnn_name'], SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'], SETTINGS['out_dim'])
+cnn_model = None
+cnn_model = get_cnn_model(SETTINGS['cnn_name'], SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'], SETTINGS['out_dim'])
 try:    
-    servo_model.load(SETTINGS['cnn_name'] + '.ckpt')
+    cnn_model.load(SETTINGS['cnn_name'] + '.ckpt')
 except Exception as e:
     print(e)
     
@@ -29,4 +29,4 @@ else:
     filename = get_latest_filename() 
 
 # Visualize it
-visualize_data(filename, SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'], cnn_model=servo_model)
+visualize_data(filename, SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'], cnn_model=cnn_model)
