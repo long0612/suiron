@@ -46,7 +46,9 @@ def visualize_data(filename, width=72, height=48, depth=3, cnn_model=None):
             y = cnn_model.predict([y_input])
             print('y[0] = '+str(y[0]))
 
-            servo_out = int(cnn_to_raw(y[0][0]))         
+            # the conversion expect a list (of size 1) for unknown reason
+            # just play along here
+            servo_out = int(cnn_to_raw([y[0][0]]))         
             cv2.line(cur_img_array, (250, 300), (250+servo_out, 200), (0, 0, 255), 3)
 
             # Can determine the motor our with a simple exponential equation
@@ -56,7 +58,7 @@ def visualize_data(filename, width=72, height=48, depth=3, cnn_model=None):
             #x_ = abs(servo_out - 90)
             #motor_out = (7.64*np.e**(-0.096*x_)) - 1
             #motor_out = int(80 - motor_out) # Only wanna go forwards
-            motor_out = int(cnn_to_raw(y[0][1]))
+            motor_out = int(cnn_to_raw([y[0][1]]))
 
             cv2.line(cur_img_array, (60, 300), (60, 300-motor_out), (0, 0, 255), 3)
             #print(motor_out, cur_motor)
