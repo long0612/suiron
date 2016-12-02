@@ -51,7 +51,7 @@ with open('settings.json') as d:
 
 # Load up our CNN
 cnn_model = None
-cnn_model = get_cnn_model(SETTINGS['cnn_name'], SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'])
+cnn_model = get_cnn_model(SETTINGS['cnn_name'], SETTINGS['width'], SETTINGS['height'], SETTINGS['depth'], out_dim=SETTINGS['out_dim'])
 try:    
     cnn_model.load(SETTINGS['cnn_name'] + '.ckpt')
 except Exception as e:
@@ -529,7 +529,8 @@ def handle_index_page():
                     }else{
                         document.getElementById("autodriveId").innerHTML = 'AUTODRIVE-OFF'
                     }
-                    postHttpRequest("setAutodrive", {gIsAutodrive})
+                    isAutodrive = gIsAutodrive
+                    postHttpRequest("setAutodrive", {isAutodrive})
                 }
 
                 function onDebugAnnotationsButtonClicked(button)
@@ -732,7 +733,7 @@ def handle_setRecord():
 def handle_setAutodrive():
     message = json.loads(request.data.decode("utf-8"))
     global _is_autodrive
-    _is_autodrive = message['setAutodrive']
+    _is_autodrive = message['isAutodrive']
     return ""
 
 @flask_app.route('/keydown', methods=['POST'])
