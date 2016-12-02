@@ -383,6 +383,8 @@ class RemoteControlCozmo:
             y = cnn_model.predict([y_input])
             self.cur_servo = int(cnn_to_raw(y[0]))
             self.cur_motor = int(cnn_to_raw(y[1]))
+        print('cur_servo = '+str(self.cur_servo))
+        print('cur_motor = '+str(self.cur_motor))
 
         self.cozmo.drive_wheels(l_wheel_speed, r_wheel_speed, l_wheel_speed*4, r_wheel_speed*4)
 
@@ -734,6 +736,7 @@ def handle_setAutodrive():
     message = json.loads(request.data.decode("utf-8"))
     global _is_autodrive
     _is_autodrive = message['isAutodrive']
+    print('AUTODRIVE MODE CHANGED, ON = '+str(_is_autodrive))
     return ""
 
 @flask_app.route('/keydown', methods=['POST'])
