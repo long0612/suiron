@@ -378,11 +378,12 @@ class RemoteControlCozmo:
             self.cur_motor = drive_dir * forward_speed
             self.cur_servo = turn_speed * turn_dir
         else:
-            cur_img_array = deserialize_image(self.logImages[self.fIdx],SETTINGS['width'],SETTINGS['height'],SETTINGS['depth'])
+            cur_img_array = deserialize_image(np.asarray(self.logImages[-1]),SETTINGS['width'],SETTINGS['height'],SETTINGS['depth'])
             y_input = cur_img_array.copy() # NN input
             y = cnn_model.predict([y_input])
-            self.cur_servo = int(cnn_to_raw(y[0]))
-            self.cur_motor = int(cnn_to_raw(y[1]))
+            self.cur_servo = int(cnn_to_raw([y[0][0]]))
+            self.cur_motor = int(cnn_to_raw([y[0][1]]))
+        print('_is_autodrive = '+str(_is_autodrive))
         print('cur_servo = '+str(self.cur_servo))
         print('cur_motor = '+str(self.cur_motor))
 
