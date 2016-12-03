@@ -79,6 +79,7 @@ remote_control_cozmo = None
 _default_camera_image = create_default_image(64,48)
 _is_mouse_look_enabled_by_default = False
 _display_debug_annotations = True
+_is_autodrive = False
 
 
 def remap_to_range(x, x_min, x_max, out_min, out_max):
