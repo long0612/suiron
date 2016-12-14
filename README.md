@@ -28,7 +28,7 @@ ln -s /usr/lib/python2.7/dist-packages/cv.pyc ~/env2.7/lib/python2.7/site-packag
 python -c 'import cv2'
 ```
 
-## Collecting data from usb camera. Data are stored under data/
+## Collecting data from a USB camera (using OpenCV). Data are stored as *data/output_foo.csv*
 ```
 python collect.py
 ```
@@ -37,32 +37,32 @@ python collect.py
 ```
 ./remote_control_cozmo.py
 ```
-* Once started, data are immediately collected. Click the 'Record' button at the top of the GUI to save recorded data to a file under data/
+* Once started, data are immediately collected into a memory buffer. Click the *Record* button at the top of the GUI to save recorded data to a file as *data/cozmoData_foo.csv*. The buffer is then reset and data collection continues.
 
 
 ## Visualizing collected data
 ```
-python visualize_collect.py data/foo.csv
+python visualize_collect.py data/cozmoData_foo.csv
 ```
 
-## Training data. Trained models are foo_model.ckpt
+## Training data. A trained model is *foo.ckpt*
 ```
-vim settings.json # change training parameters, e.g. output model name, here
+vim settings.json # change training parameters, including output model name, here
 python train.py
 ```
 
 * Troubleshooting training
-** __~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save__
+1. __~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save__
 
     Set __allow_empty=True__ option in the Saver constructor (this seems to be new in TF).
 
-## Visualizing predicted data
+## Visualizing predicted data. A *foo.gif* is generated at the end.
 ```
 vim settings.json # choose the model to be used for prediction here
 python visualize_predict.py data/foo.csv
 ```
 
-# Closing the loop
+## Closing the loop
 ```
 ./remote_control_cozmo.py
 ```
