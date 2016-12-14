@@ -56,7 +56,7 @@ python train.py
 ```
 * All data under *data/* are used for training/testing/validation. Let *foo.ckpt* be a trained model.
 * *~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save*. 
-  + Set *allow_empty=True* option in the Saver constructor (this is new in tf, resulting in a bug in tflearn).
+..* Set *allow_empty=True* option in the Saver constructor (this is new in tf, resulting in a bug in tflearn).
 
 ## Visualizing the predicted data
 ```
