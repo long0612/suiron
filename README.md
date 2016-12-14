@@ -39,7 +39,7 @@ python collect.py
 ```
 ./remote_control_cozmo.py
 ```
-* Once started, data are immediately collected into a memory buffer. Click the *Record* button at the top of the GUI to save buffer data to a file as *data/cozmoData_foo.csv*. The buffer is then reset and data collection continues.
+* Once started, data are immediately collected into a memory buffer. Click the *Record* button at the top of the GUI to save buffered data to a file as *data/cozmoData_foo.csv*. The buffer is then reset and data collection continues.
 
 
 ## Visualizing collected data
