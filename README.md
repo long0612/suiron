@@ -68,6 +68,12 @@ python train.py
 * All data under *data/* are used for training/testing/validation. Let *foo.ckpt* be a trained model.
 * Exception *~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save*. 
   * Set *allow_empty=True* option in the Saver constructor (this is new in tf, resulting in a bug in tflearn).
+  
+* AWS instances can be used for training.
+| AMI ID        | AMI name      |
+| ------------- |:-------------:|
+| ami-85c26de5  | tensorflow-cuda8-cudnn5.1-opencv |
+| ami-789e3118  | dnn-ami-backup-11-23-2016 |
 
 ## Visualizing the predicted data
 ```
