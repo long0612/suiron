@@ -70,6 +70,7 @@ python train.py
   * Set *allow_empty=True* option in the Saver constructor (this is new in tf, resulting in a bug in tflearn).
   
 * AWS instances can be used for training.
+
 | AMI ID        | AMI name      |
 | ------------- |:-------------:|
 | ami-85c26de5  | tensorflow-cuda8-cudnn5.1-opencv |
