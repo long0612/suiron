@@ -46,7 +46,7 @@ python collect.py
 ```
 python visualize_collect.py data/cozmoData_foo.csv
 ```
-* Pressed *q* to quit at anytime
+* Press *q* to quit the visualization at anytime
 
 ## Training data. A trained model is *foo.ckpt*
 ```
