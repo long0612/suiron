@@ -39,7 +39,7 @@ python collect.py
 ```
 ./remote_control_cozmo.py
 ```
-* Once started, data are immediately collected into a memory buffer. Click the *Record* button at the top of the GUI to save recorded data to a file as *data/cozmoData_foo.csv*. The buffer is then reset and data collection continues.
+* Once started, data are immediately collected into a memory buffer. Click the *Record* button at the top of the GUI to save buffer data to a file as *data/cozmoData_foo.csv*. The buffer is then reset and data collection continues.
 
 
 ## Visualizing collected data
@@ -53,11 +53,8 @@ python visualize_collect.py data/cozmoData_foo.csv
 vim settings.json # change training parameters, including output model name, here
 python train.py
 ```
-
-* Troubleshooting training
-1. __~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save__
-
-    Set __allow_empty=True__ option in the Saver constructor (this seems to be new in TF).
+* __~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save__
+> Set __allow_empty=True__ option in the Saver constructor (this seems to be new in TF).
 
 ## Visualizing predicted data. A *foo.gif* is generated at the end.
 ```
@@ -69,7 +66,7 @@ python visualize_predict.py data/foo.csv
 ```
 ./remote_control_cozmo.py
 ```
-* Auto-drive can be toggled using the 'AUTODRIVE' button at the top of the GUI. NOTE: Drive commands (WASD) still need to be transmitted to Cozmo to actuate. However, their values are ignore. Instead, the outputs of DNN are used to drive and steer Cozmo.
+* Auto-drive can be toggled using the 'AUTODRIVE' button at the top of the GUI. NOTE: Drive commands (WASD) still need to be transmitted to Cozmo for actuation. However, their values are ignore. Instead, the outputs of DNN are used to drive and steer Cozmo.
 
 # References
 
