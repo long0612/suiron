@@ -30,12 +30,13 @@ ln -s /usr/lib/python2.7/dist-packages/cv.pyc ~/env2.7/lib/python2.7/site-packag
 python -c 'import cv2'
 ```
 
-## Collecting data from a USB camera (using OpenCV). Data are stored as *data/output_foo.csv*
+## Collecting data from a USB camera (using OpenCV).
 ```
 python collect.py
 ```
+* Data are stored as *data/output_foo.csv*
 
-## Collecting data from Cozmo, using a browser-based GUI
+## Collecting data from Cozmo (using a browser-based GUI)
 ```
 ./remote_control_cozmo.py
 ```
@@ -48,19 +49,21 @@ python visualize_collect.py data/cozmoData_foo.csv
 ```
 * Press *q* to quit the visualization at anytime
 
-## Training. All data under *data/* are used for training/testing/validation. A trained model is *foo.ckpt*
+## Training.
 ```
 vim settings.json # change training parameters, including output model name, here
 python train.py
 ```
-* Problem: *~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save*
-* Solution: Set __allow_empty=True__ option in the Saver constructor (this is new in tf, resulting in a bug in tflearn).
+* All data under *data/* are used for training/testing/validation. Let *foo.ckpt* be a trained model.
+* Problem: *~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save*. 
+  Solution: Set __allow_empty=True__ option in the Saver constructor (this is new in tf, resulting in a bug in tflearn).
 
-## Visualizing predicted data. A *foo.gif* is generated at the end.
+## Visualizing the predicted data.
 ```
 vim settings.json # choose the model to be used for prediction here
 python visualize_predict.py data/foo.csv
 ```
+* A *foo.gif* is generated at the end.
 
 ## Closing the loop
 ```
