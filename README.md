@@ -30,7 +30,7 @@ ln -s /usr/lib/python2.7/dist-packages/cv.pyc ~/env2.7/lib/python2.7/site-packag
 python -c 'import cv2'
 ```
 
-## Collecting data from a USB camera (using OpenCV).
+## Collecting data from a USB camera (using OpenCV)
 ```
 python collect.py
 ```
@@ -49,7 +49,7 @@ python visualize_collect.py data/cozmoData_foo.csv
 ```
 * Press *q* to quit the visualization at anytime
 
-## Training.
+## Training
 ```
 vim settings.json # change training parameters, including output model name, here
 python train.py
@@ -58,7 +58,7 @@ python train.py
 * *~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save*. 
   + Set *allow_empty=True* option in the Saver constructor (this is new in tf, resulting in a bug in tflearn).
 
-## Visualizing the predicted data.
+## Visualizing the predicted data
 ```
 vim settings.json # choose the model to be used for prediction here
 python visualize_predict.py data/foo.csv
