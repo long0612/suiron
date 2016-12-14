@@ -28,34 +28,49 @@ ln -s /usr/lib/python2.7/dist-packages/cv.pyc ~/env2.7/lib/python2.7/site-packag
 python -c 'import cv2'
 ```
 
-## Collecting data
+## Collecting data from usb camera. Data are stored under data/
 ```
 python collect.py
 ```
 
+## Collecting data from Cozmo, using a browser-based GUI
+```
+./remote_control_cozmo.py
+```
+* Once started, data are immediately collected. Click the 'Record' button at the top of the GUI to save recorded data to a file under data/
+
+
 ## Visualizing collected data
 ```
-python visualize_collect.py
+python visualize_collect.py data/foo.csv
 ```
 
-## Training data
+## Training data. Trained models are foo_model.ckpt
 ```
+vim settings.json # change training parameters, e.g. output model name, here
 python train.py
 ```
-#### Troubleshooting
-* __~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save__
+
+* Troubleshooting training
+** __~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save__
 
     Set __allow_empty=True__ option in the Saver constructor (this seems to be new in TF).
 
 ## Visualizing predicted data
 ```
-python visualize_predict.py
+vim settings.json # choose the model to be used for prediction here
+python visualize_predict.py data/foo.csv
 ```
+
+# Closing the loop
+```
+./remote_control_cozmo.py
+```
+* Auto-drive can be toggled using the 'AUTODRIVE' button at the top of the GUI. NOTE: Drive commands (WASD) still need to be transmitted to Cozmo to actuate. However, their values are ignore. Instead, the outputs of DNN are used to drive and steer Cozmo.
 
 # References
 
 Blog Post detailing how the hardware and software communicate - [Communicating between RC Car and the On-board Computer - Jabelone](http://jabelone.com.au/blog/make-autonomous-car-code-included/)
-
 
 Communication between hardware and software repo - [car-controller](https://github.com/jabelone/car-controller)
 
