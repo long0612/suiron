@@ -1,14 +1,16 @@
-# Suiron
-### Machine Learning for RC Cars 
+# Suiron for Cozmo
+### Vision-based, autonomous driving for Cozmo
 
-## Prediction visualization (green = actual, blue = prediction)
+<!--
+### Prediction visualization (green = actual, blue = prediction)
 ![](https://thumbs.gfycat.com/DarlingForkedAcaciarat-size_restricted.gif)
 
-## Click the video below to see it in action!
+### Click the video below to see it in action!
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/tFwCyHdAWf0/0.jpg)](https://youtu.be/tFwCyHdAWf0 "Machine Learning Car")
+-->
 
 ## Dependencies
-#### __Python 2.7__ was chosen as it was supported by all the libraries used at the time
+### __Python 2.7__ was chosen as it was supported by all the libraries used at the time
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -20,7 +22,7 @@ sudo pip install --upgrade $TF_BINARY_URL
 sudo pip install -r requirements.txt
 ```
 
-#### For virtualenv, must create additional symlinks. Note that the main class in the python API is named cv2 to avoid the namespace collision with another package, and not an indication of version 2
+### For virtualenv, must create additional symlinks. Note that the main class in the python API is named cv2 to avoid the namespace collision with another package, and not an indication of version 2
 ```
 ln -s /usr/lib/python2.7/dist-packages/cv2.so ~/env2.7/lib/python2.7/site-packages/cv2.so
 ln -s /usr/lib/python2.7/dist-packages/cv.py ~/env2.7/lib/python2.7/site-packages/cv.py
