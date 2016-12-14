@@ -56,14 +56,14 @@ python train.py
 ```
 * All data under *data/* are used for training/testing/validation. Let *foo.ckpt* be a trained model.
 * Problem: *~/env2.7/lib/python2.7/site-packages/tflearn/helpers/trainer.py@134, tf.train.Saver (tensorflow/tensorflow/python/training/saver.py): No variables to save*. 
-  Solution: Set __allow_empty=True__ option in the Saver constructor (this is new in tf, resulting in a bug in tflearn).
+  + Solution: Set __allow_empty=True__ option in the Saver constructor (this is new in tf, resulting in a bug in tflearn).
 
 ## Visualizing the predicted data.
 ```
 vim settings.json # choose the model to be used for prediction here
 python visualize_predict.py data/foo.csv
 ```
-* A *foo.gif* is generated at the end.
+* A *foo.gif* is generated at the end or on termination of the visualizer.
 
 ## Closing the loop
 ```
