@@ -80,7 +80,7 @@ python visualize_predict.py data/foo.csv
 ```
 * A *foo.gif* is generated at the end or on termination of the visualizer.
 * Prediction visualization (green = actual, blue = prediction)
-![](https://thumbs.gfycat.com/DarlingForkedAcaciarat-size_restricted.gif)
+![](https://github.com/long0612/suiron/blob/master/cozmoData_1.gif)
 
 
 ## Closing the loop
