@@ -2,9 +2,6 @@
 ### Vision-based, autonomous driving for Cozmo
 
 <!--
-### Prediction visualization (green = actual, blue = prediction)
-![](https://thumbs.gfycat.com/DarlingForkedAcaciarat-size_restricted.gif)
-
 ### Click the video below to see it in action!
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/tFwCyHdAWf0/0.jpg)](https://youtu.be/tFwCyHdAWf0 "Machine Learning Car")
 -->
@@ -82,6 +79,9 @@ vim settings.json # choose the model to be used for prediction here
 python visualize_predict.py data/foo.csv
 ```
 * A *foo.gif* is generated at the end or on termination of the visualizer.
+* Prediction visualization (green = actual, blue = prediction)
+![](https://thumbs.gfycat.com/DarlingForkedAcaciarat-size_restricted.gif)
+
 
 ## Closing the loop
 ```
